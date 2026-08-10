@@ -1,4 +1,7 @@
 # Smart Food Demand Prediction System
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
 
 A web-based Food Demand Prediction and Management System developed using Python, Flask, SQLite, HTML, CSS, and Machine Learning concepts.
 
