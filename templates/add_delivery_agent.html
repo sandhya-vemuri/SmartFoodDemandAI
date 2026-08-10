@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Delivery Agent</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="login-box">
+
+    <h1>Add Delivery Agent</h1>
+
+    <form method="POST">
+        <input type="number"
+           name="agent_id"
+           placeholder="Agent ID"
+           required>
+           
+        <input type="text"
+               name="agent_name"
+               placeholder="Agent Name"
+               required>
+
+        <input type="text"
+               name="phone"
+               placeholder="Phone Number"
+               required>
+
+        <input type="text"
+               name="area"
+               placeholder="Area"
+               required>
+
+        <button type="submit">
+            Save Delivery Agent
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Edit Food Order</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Edit Food Order</h1>
+
+<form method="POST" action="/save_food_order">
+
+<input
+type="hidden"
+name="order_id"
+value="{{ order[0] }}">
+
+<label>Customer Name</label>
+
+<input
+type="text"
+name="customer_name"
+value="{{ order[1] }}"
+required>
+
+<br><br>
+
+<label>Restaurant</label>
+
+<input
+type="text"
+name="restaurant_name"
+value="{{ order[2] }}"
+required>
+
+<br><br>
+
+<label>Food Item</label>
+
+<input
+type="text"
+name="food_item"
+value="{{ order[3] }}"
+required>
+
+<br><br>
+
+<label>Quantity</label>
+
+<input
+type="number"
+name="quantity"
+value="{{ order[4] }}"
+required>
+
+<br><br>
+
+<label>Price</label>
+
+<input
+type="number"
+name="price"
+value="{{ order[5] }}"
+required>
+
+<br><br>
+
+<label>Status</label>
+
+<select name="order_status">
+
+    <option value="pending"
+    {% if order[6] == "pending" %}selected{% endif %}>
+        Pending
+    </option>
+
+    <option value="delivered"
+    {% if order[6] == "delivered" %}selected{% endif %}>
+        Delivered
+    </option>
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Update Order
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

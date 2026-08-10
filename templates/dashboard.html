@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2> Smart Food Demand Prediction System</h2>
+</div>
+
+<div class="main-container">
+
+<div class="sidebar">
+
+    <a href="/dashboard" class="active">🏠 Dashboard</a>
+
+    <a href="/add_restaurant">🍽 Add Restaurant</a>
+
+    <a href="/view_restaurants">📋 View Restaurants</a>
+
+    <a href="/add_delivery_agent">🚚 Add Delivery Agent</a>
+
+    <a href="/view_delivery_agents">👨‍💼 View Delivery Agents</a>
+
+    <a href="/add_food_order">🛒 Add Food Order</a>
+
+    <a href="/view_food_orders">📦 View Food Orders</a>
+
+    <a href="/prediction">📈 Food Demand Prediction</a>
+     
+    <a href="/prediction_history">📜 Prediction History</a>
+
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+
+    <h2>Welcome to Smart Food Demand Prediction System</h2>
+    <hr>
+
+<h2>Dashboard Summary</h2>
+
+<div class="dashboard-cards">
+
+    <a href="/view_restaurants" class="card-link">
+    <div class="card restaurant-card">
+        <h3>🍽 Total Restaurants</h3>
+        <p>{{ restaurants }}</p>
+    </div>
+</a>
+
+<a href="/view_delivery_agents" class="card-link">
+    <div class="card agent-card">
+        <h3>🚚 Total Delivery Agents</h3>
+        <p>{{ agents }}</p>
+    </div>
+</a>
+
+    <a href="/view_food_orders" class="card-link">
+    <div class="card order-card">
+        <h3>📦 Total Food Orders</h3>
+        <p>{{ orders }}</p>
+    </div>
+</a>
+
+<a href="/view_food_orders" class="card-link">
+    <div class="card pending-card">
+        <h3>⏳ Pending Orders</h3>
+        <p>{{ pending }}</p>
+    </div>
+</a>
+
+<a href="/view_food_orders" class="card-link">
+    <div class="card delivered-card">
+        <h3>✅ Delivered Orders</h3>
+        <p>{{ delivered }}</p>
+    </div>
+</a>
+
+<a href="/view_food_orders" class="card-link">
+    <div class="card revenue-card">
+        <h3>💰 Total Revenue</h3>
+        <p>₹ {{ revenue }}</p>
+    </div>
+</a>
+
+</div>
+
+<hr>
+
+<h2>Dashboard Analytics</h2>
+
+<div class="charts">
+
+    <div class="chart-box">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+</div>
+
+<hr>
+<h2>Recent Food Orders</h2>
+
+<table class="dashboard-table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Restaurant</th>
+            <th>Food Item</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for order in recent_orders %}
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[4] }}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+</div>  <!-- container -->
+</div>  <!-- main-container -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const barChart = new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+        labels: [
+        "Restaurants",
+        "Agents",
+        "Orders",
+        "Pending",
+        "Delivered"
+        ],
+        datasets: [{
+            label: "Dashboard Summary",
+            data: [
+                {{ restaurants }},
+                {{ agents }},
+                {{ orders }},
+                {{ pending }},
+                {{ delivered }}
+            ],
+            backgroundColor: [
+                "#3498db",
+                "#f39c12",
+                "#9b59b6",
+                "#e74c3c",
+                "#2ecc71"   
+            ]
+        }]
+    },
+    options:{
+        responsive:true
+    }
+});
+
+const pieChart = new Chart(document.getElementById("pieChart"), {
+    type: "pie",
+    data: {
+        labels:["Pending","Delivered"],
+        datasets:[{
+            data:[
+                {{ pending }},
+                {{ delivered }}
+            ],
+            backgroundColor:[
+                "#e74c3c",
+                "#2ecc71"
+            ]
+        }]
+    },
+    options:{
+        responsive:true
+    }
+});
+
+</script>
+</body>
+</html>

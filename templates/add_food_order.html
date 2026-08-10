@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Food Order</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="login-box">
+
+    <h1>Add Food Order</h1>
+
+    <form method="POST">
+       
+        <input type="text"
+               name="customer_name"
+               placeholder="Customer Name"
+               required>
+
+        <input type="text"
+               name="restaurant_name"
+               placeholder="Restaurant Name"
+               required>
+
+        <input type="text"
+               name="food_item"
+               placeholder="Food Item"
+               required>
+
+        <input type="number"
+               name="quantity"
+               placeholder="Quantity"
+               required>
+
+        <input type="number"
+               step="0.01"
+               name="price"
+               placeholder="Price"
+               required>
+
+        <input type="text"
+               name="order_status"
+               placeholder="Order Status (Pending / Delivered)"
+               required>
+
+        <button type="submit">
+            Save Food Order
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

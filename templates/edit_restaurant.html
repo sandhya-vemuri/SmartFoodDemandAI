@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Restaurant</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h1>Edit Restaurant</h1>
+
+    <form method="POST" action="/update_restaurant">
+
+        <input
+        type="hidden"
+        name="restaurant_id"
+        value="{{ restaurant[0] }}">
+
+        <label>Restaurant Name</label>
+
+        <input
+        type="text"
+        name="restaurant_name"
+        value="{{ restaurant[1] }}"
+        required>
+
+        <label>Location</label>
+
+        <input
+        type="text"
+        name="location"
+        value="{{ restaurant[2] }}"
+        required>
+
+        <label>Rating</label>
+
+        <input
+        type="number"
+        step="0.1"
+        name="rating"
+        value="{{ restaurant[3] }}"
+        required>
+
+        <br><br>
+
+        <button type="submit">
+            Update Restaurant
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Delivery Agent</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="login-box">
+
+    <h1>Edit Delivery Agent</h1>
+
+    <form action="/update_delivery_agent" method="POST">
+
+        <input
+            type="hidden"
+            name="agent_id"
+            value="{{ agent[0] }}">
+
+        <input
+            type="text"
+            name="agent_name"
+            value="{{ agent[1] }}"
+            required>
+
+        <input
+            type="text"
+            name="phone"
+            value="{{ agent[2] }}"
+            required>
+
+        <input
+            type="text"
+            name="area"
+            value="{{ agent[3] }}"
+            required>
+
+        <button type="submit">
+            Update Delivery Agent
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

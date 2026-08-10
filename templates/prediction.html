@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Food Demand Prediction</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h1>Food Demand Prediction</h1>
+
+    <form method="POST">
+
+        <input
+        type="text"
+        name="restaurant_name"
+        placeholder="Restaurant Name"
+        required>
+
+        <input
+        type="text"
+        name="food_item"
+        placeholder="Food Item"
+        required>
+
+        <input
+        type="number"
+        name="quantity"
+        placeholder="Quantity"
+        required>
+
+        <button type="submit">
+            Predict Demand
+        </button>
+
+    </form>
+{% if result %}
+<hr>
+
+<h2 style="color:green;">
+    Prediction Result
+</h2>
+
+<h3>
+    {{ result }}
+</h3>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

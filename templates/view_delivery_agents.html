@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Delivery Agents</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Delivery Agents</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr>
+            <th>ID</th>
+            <th>Agent Name</th>
+            <th>Phone</th>
+            <th>Area</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for agent in agents %}
+        <tr>
+            <td>{{ agent[0] }}</td>
+            <td>{{ agent[1] }}</td>
+            <td>{{ agent[2] }}</td>
+            <td>{{ agent[3] }}</td>
+                <td>
+        <a href="/edit_delivery_agent/{{ agent[0] }}">
+            <button type="button">Edit</button>
+        </a>
+
+
+    <a href="/delete_delivery_agent/{{ agent[0] }}"
+   onclick="return confirm('Are you sure you want to delete this delivery agent?')">
+    <button type="button">Delete</button>
+</a>    
+    </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

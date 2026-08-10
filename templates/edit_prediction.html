@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="login-box">
+
+    <h1>Edit Prediction</h1>
+
+    <form action="/update_prediction" method="POST">
+
+        <input
+            type="hidden"
+            name="prediction_id"
+            value="{{ prediction[0] }}">
+
+        <input
+            type="text"
+            name="restaurant_name"
+            value="{{ prediction[1] }}"
+            required>
+
+        <input
+            type="text"
+            name="food_item"
+            value="{{ prediction[2] }}"
+            required>
+
+        <input
+            type="number"
+            name="quantity"
+            value="{{ prediction[3] }}"
+            required>
+
+        <button type="submit">
+            Update Prediction
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

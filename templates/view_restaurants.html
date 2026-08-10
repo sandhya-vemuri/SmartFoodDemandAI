@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Restaurants</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Restaurants List</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr>
+            <th>ID</th>
+            <th>Restaurant Name</th>
+            <th>Location</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for restaurant in restaurants %}
+        <tr>
+            <td>{{ restaurant[0] }}</td>
+            <td>{{ restaurant[1] }}</td>
+            <td>{{ restaurant[2] }}</td>
+            <td>{{ restaurant[3] }}</td>
+
+        <td>
+        <a href="/edit_restaurant/{{ restaurant[0] }}">
+            <button type="button">Edit</button>
+        </a>
+    <a href="/delete_restaurant/{{ restaurant[0] }}"
+       onclick="return confirm('Are you sure you want to delete this restaurant?')">
+        <button type="button">Delete</button>
+    </a>
+
+    </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
