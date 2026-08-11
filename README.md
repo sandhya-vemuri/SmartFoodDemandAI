@@ -3,6 +3,10 @@
 
 ![Dashboard](screenshots/dashboard.png)
 
+## Food Demand Prediction
+
+![Prediction](screenshots/prediction.png)
+
 A web-based Food Demand Prediction and Management System developed using Python, Flask, SQLite, HTML, CSS, and Machine Learning concepts.
 
 ## Project Overview
