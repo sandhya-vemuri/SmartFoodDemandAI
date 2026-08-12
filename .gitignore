@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .env
 food_demand.db
+food_demand_backup.db
