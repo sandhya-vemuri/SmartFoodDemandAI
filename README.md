@@ -11,9 +11,9 @@
 
 ![Food Orders](screenshots/food_orders.png)
 
-## restaurants
+## Restaurants
 
-![restaurants](screenshots/restaurants.png)
+![Restaurants](screenshots/restaurants.png)
 
 ## Delivery Agents
 
@@ -80,3 +80,13 @@ SmartFoodDemandAI
     ├── view_restaurants.html
     ├── add_delivery_agent.html
     └── view_delivery_agents.html
+
+    ## Future Enhancements
+
+- Deploy the application to a cloud platform
+- Improve food demand prediction accuracy
+- Add advanced data visualization and analytics
+- Add role-based access for administrators and staff
+- Add real-time order tracking
+- Add email or SMS notifications
+- Improve mobile responsiveness
