@@ -11,6 +11,10 @@
 
 ![Food Orders](screenshots/food_orders.png)
 
+## restaurants
+
+![restaurants](screenshots/restaurants.png)
+
 A web-based Food Demand Prediction and Management System developed using Python, Flask, SQLite, HTML, CSS, and Machine Learning concepts.
 
 ## Project Overview
