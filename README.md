@@ -80,11 +80,11 @@ SmartFoodDemandAI
     ├── view_restaurants.html
     ├── add_delivery_agent.html
     └── view_delivery_agents.html
+```
 
-***
+---
 
-
- ## Future Enhancements
+## Future Enhancements
 
 - Deploy the application to a cloud platform
 - Improve food demand prediction accuracy
